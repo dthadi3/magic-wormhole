@@ -35,5 +35,37 @@ matrix:
       dist: xenial
       script: tox -e docs
       env: DOCS
+#Added power jobs
+    - python: 2.7
+      arch: ppc64le
+      script: tox -e py27-nodilate
+    - python: 3.5
+      arch: ppc64le
+      script: tox -e py35-coverage
+    - python: 3.6
+      arch: ppc64le
+      script: tox -e py36-coverage
+    - python: 3.7
+      arch: ppc64le
+      dist: xenial
+      script: tox -e py37-coverage
+    - python: 3.8
+      arch: ppc64le
+      dist: bionic
+      script: tox -e py38-coverage
+    - python: nightly
+      arch: ppc64le
+      script: tox -e py-coverage
+    - python: 3.6
+      arch: ppc64le
+      script: tox -e flake8less
+      env: FLAKE8
+    - python: 3.7
+      arch: ppc64le
+      dist: xenial
+      script: tox -e docs
+      env: DOCS
   allow_failures:
     - python: nightly
+    - python: nightly
+      arch: ppc64le
